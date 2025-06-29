@@ -7,25 +7,25 @@ const projects = [
   },
   {
     title: "Exemple Site 1",
-    image: "../images/sites_portfolio/temp.png",
+    image: "/images/sites_portfolio/temp.png",
     description: "Pas encore de site pour cet emplacement.",
     link: "#"
   },
   {
     title: "Exemple Site 2",
-    image: "../images/sites_portfolio/temp.png",
+    image: "/images/sites_portfolio/temp.png",
     description: "Pas encore de site pour cet emplacement.",
     link: "#"
   },
   {
     title: "Exemple Site 3",
-    image: "../images/sites_portfolio/temp.png",
+    image: "/images/sites_portfolio/temp.png",
     description: "Pas encore de site pour cet emplacement.",
     link: "#"
   },
   {
     title: "Exemple Site 4",
-    image: "../images/sites_portfolio/temp.png",
+    image: "/images/sites_portfolio/temp.png",
     description: "Pas encore de site pour cet emplacement.",
     link: "#"
   }
