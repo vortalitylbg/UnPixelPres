@@ -1,7 +1,7 @@
 const projects = [
   {
     title: "Bac Marée | St Aubin La salle",
-    image: "../images/sites_portfolio/bac_a_maree.png",
+    image: "/images/sites_portfolio/bac_a_maree.png",
     description: "Prototype d'un site web pour une micro-entreprise lycéenne engagée dans la collecte et la valorisation des déchets plastiques sauvages, dans le cadre d’un projet Bac en section euro plastique & composite.",
     link: "https://vortalitylbg.github.io/Projet_bac_a_maree/"
   },
