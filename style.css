@@ -152,6 +152,12 @@ h2 {
   transform: translateY(-6px);
 }
 
+.process-link {
+  color: #18a18f;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 form {
   display: grid;
   gap: 1rem;
