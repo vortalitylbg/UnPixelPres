@@ -1,95 +1,68 @@
-const projects = [
-  {
-    title: "Bac Marée | St Aubin La salle",
-    image: "https://github.com/vortalitylbg/WebSurMesure/blob/main/images/sites_portfolio/bac_a_maree.png?raw=true",
-    description: "Prototype d'un site web pour une micro-entreprise lycéenne engagée dans la collecte et la valorisation des déchets plastiques sauvages, dans le cadre d’un projet Bac en section euro plastique & composite.",
-    link: "https://vortalitylbg.github.io/Projet_bac_a_maree/"
-  },
-  {
-    title: "WebSurMesure",
-    image: "images/sites_portfolio/websurmesure.png",
-    description: "Site vitrine de mon activité de freelance, présentant mes services de création de sites web sur mesure.",
-    link: "https://vortalitylbg.github.io/WebSurMesure/"
-  },
-];
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio – WebSurMesure</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
 
-function truncateDescription(text, maxLength = 90) {
-  if (text.length <= maxLength) return text;
+  <header>
+    <div class="container">
+      <div class="logo"><a href="../index.html">WebSurMesure</a></div>
+      <nav class="nav">
+        <a href="../index.html">Accueil</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  // Coupe au dernier espace avant la limite
-  const trimmed = text.slice(0, maxLength);
-  const lastSpace = trimmed.lastIndexOf(' ');
-  return trimmed.slice(0, lastSpace) + ' <span class="see-more">Voir plus</span>';
-}
+  <section class="reveal">
+    <div class="container">
+      <h1>Portfolio</h1>
+      <p class="section-intro">Pour l'instant, seulement 1 projet a été réalisé.</p>
 
+      <div class="portfolio-grid">
+        <div class="portfolio-grid" id="portfolio-cards"></div>
+      </div>
+    </div>
+  </section>
 
-function openModal(index) {
-  const modal = document.getElementById("modal");
-  document.getElementById("modal-img").src = projects[index].image;
-  document.getElementById("modal-title").textContent = projects[index].title;
-  document.getElementById("modal-description").textContent = projects[index].description;
-  document.getElementById("modal-link").href = projects[index].link;
-  modal.style.display = "flex";
-}
+  <!-- Modale -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <img id="modal-img" src="" alt="">
+      <h3 id="modal-title"></h3>
+      <p id="modal-description"></p>
+      <a id="modal-link" href="#" target="_blank" class="visit-btn">Visiter le site</a>
+    </div>
+  </div>
 
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="../legal/mentions.html">Mentions légales</a>
+        <a href="../legal/conditions.html">Conditions générales</a>
+        <a href="#contact">contact</a>
+      </div>
+      <p>© 2025 – WebSurMesure. Tous droits réservés.</p>
+    </div>
+  </footer>
 
-window.addEventListener("click", (e) => {
-  if (e.target.classList.contains("modal")) closeModal();
-});
+  <script src="../script.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script src="../lenis.js"></script>
+  
+  <script src="portfolio.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      generatePortfolioCards("#portfolio-cards", true);
+    });
+  </script>
 
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".project-card p").forEach((p) => {
-    const fullText = p.textContent.trim();
-    if (fullText.length > 90) {
-      const short = fullText.slice(0, 90);
-      const lastSpace = short.lastIndexOf(" ");
-      const finalText = fullText.slice(0, lastSpace) + ' <span class="see-more">Voir plus</span>';
-      p.innerHTML = finalText;
-    }
-  });
-});
-
-function generatePortfolioCards(containerSelector, modalEnabled = true) {
-  const container = document.querySelector(containerSelector);
-  if (!container || !Array.isArray(projects)) return;
-
-  projects.forEach((project, index) => {
-    const p = truncateDescription(project.description);
-    const card = document.createElement("div");
-    card.className = "project-card";
-    if (modalEnabled) card.setAttribute("onclick", `openModal(${index})`);
-
-    card.innerHTML = `
-      <img src="${project.image}" alt="${project.title}">
-      <h3>${project.title}</h3>
-      <p>${p}</p>
-    `;
-    container.appendChild(card);
-  });
-}
-
-
-function generatePortfolioCards(containerSelector, modalEnabled = true, limit = null) {
-  const container = document.querySelector(containerSelector);
-  if (!container || !Array.isArray(projects)) return;
-
-  const slice = limit ? projects.slice(0, limit) : projects;
-
-  slice.forEach((project, index) => {
-    const p = truncateDescription(project.description);
-    const card = document.createElement("div");
-    card.className = "project-card";
-    if (modalEnabled) card.setAttribute("onclick", `openModal(${index})`);
-
-    card.innerHTML = `
-      <img src="${project.image}" alt="${project.title}">
-      <h3>${project.title}</h3>
-      <p>${p}</p>
-    `;
-    container.appendChild(card);
-  });
-}
+</body>
+</html>
