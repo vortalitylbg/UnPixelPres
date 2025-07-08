@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WebSurMesure – Sites modernes & efficaces</title>
+  <title>Teamothée Studio – Sites modernes & efficaces</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -14,11 +14,13 @@
 <body>
   <header>
     <div class="container">
-      <div class="logo"><a href="index.html">WebSurMesure</a></div>
+      <div class="logo"><a href="index.html">Teamothée Studio</a></div>
 
       <!-- Hamburger -->
-      <button class="hamburger" aria-label="Ouvrir le menu">
-        <i class="fa-solid fa-bars"></i>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
 
@@ -41,7 +43,7 @@
     <div class="container">
       <h1>Des sites web modernes & sur mesure</h1>
       <p>Créateur indépendant de sites web : design élégant, développement rapide, 100% adapté à vos besoins.</p>
-      <a href="#contact" class="cta-button">Commander mon site</a>
+      <a href="#commande" class="cta-button-blanc">Commander mon site</a>
     </div>
   </section>
 
@@ -67,12 +69,12 @@
     <div class="container">
       <h2>Comment ça se passe ?</h2>
       <div class="cards">
-        <div class="card"><h3>1. Premier contact</h3><p>Vous m’écrivez <a class="process-link" href="#contact">via le site</a> ou par <a class="process-link" href="mailto:timothee.charruau@icloud.com">mail</a>, et je vous réponds rapidement.</p></div>
-        <div class="card"><h3>2. Brief rapide</h3><p>Je vous envoie un court questionnaire pour bien cerner vos besoins.</p></div>
-        <div class="card"><h3>3. Échange projet</h3><p>On discute ensemble du style, du contenu et du type de site souhaité.</p></div>
-        <div class="card"><h3>4. Devis clair</h3><p>Je vous propose une solution avec tarif, délai, et options selon votre besoin.</p></div>
-        <div class="card"><h3>5. Création site</h3><p>Je développe votre site et vous tenez informé de l'avancement en ligne.</p></div>
-        <div class="card"><h3>6. Livraison finale</h3><p>Je vous livre le site finalisé avec ajustements si besoin.</p></div>
+        <div class="card"><h3>1. Vous commandez</h3><p>Vous remplissez un court <a class="process-link" href="#commande">formulaire</a> avec vos besoins (pages, style, couleurs...).</p></div>
+        <div class="card"><h3>2. On échange</h3><p>Je vous contacte rapidement par mail ou appel pour m'assurer d’avoir bien compris votre demande.</p></div>
+        <div class="card"><h3>3. Je démarre</h3><p>Dès que j’ai les infos nécessaires, je commence directement la création du site.</p></div>
+        <div class="card"><h3>4. Lien de suivi</h3><p>Vous recevez un lien temporaire pour suivre l’avancement en temps réel.</p></div>
+        <div class="card"><h3>5. Retours & ajustements</h3><p>Vous me dites ce que vous voulez modifier, ajouter ou ajuster, autant de fois que nécessaire.</p></div>
+        <div class="card"><h3>6. Livraison finale</h3><p>	Une fois le site validé, je vous livre tous les fichiers, prêt à être utilisé ou hébergé.</p></div>
       </div>
     </div>
   </section>
@@ -126,6 +128,24 @@
     </div>
   </section>
 
+  <section id="commande" class="reveal alt">
+    <div class="container">
+      <h2>Commander un site</h2>
+      <p>Prêt à créer votre site web sur-mesure ? Remplissez un petit questionnaire pour que je comprenne vos besoins.</p>
+
+      <div class="cta-center">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfx1Y8jRfAg3UeVPPWIaWRpViVrAvzyOle6gCWOgp_qvphgow/viewform?usp=dialog" target="_blank" class="cta-button">
+          Remplir le formulaire
+        </a>
+      </div>
+
+      <p class="mini-note">Vous avez une question avant de commander ? <a href="#contact"><strong>Contactez-moi ici</strong></a>.</p>
+    </div>
+  </section>
+
+
+
+
   <section id="contact" class="reveal">
     <div class="container">
       <h2>Me contacter</h2>
@@ -160,6 +180,9 @@
       <a id="modal-link" href="#" target="_blank" class="visit-btn">Visiter le site</a>
     </div>
   </div>
+
+
+  <div class="overlay" id="overlay"></div>
 
 
 
