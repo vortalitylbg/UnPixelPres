@@ -97,20 +97,6 @@ header .container {
   margin: 0 auto 2rem;
 }
 
-.cta-button {
-  padding: 1rem 2rem;
-  background: var(--white);
-  color: var(--primary);
-  border-radius: var(--radius);
-  font-weight: 600;
-  transition: background var(--transition), color var(--transition);
-}
-
-.cta-button:hover {
-  background: var(--primary);
-  color: var(--white);
-}
-
 section {
   padding: 6rem 0;
 }
@@ -134,6 +120,7 @@ h2 {
 .card {
   background: #f3fefd; /* fond très clair tirant vers vert/turquoise */
   padding: 2rem;
+  border: 1px solid #ddd;
   border-radius: var(--radius);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -145,7 +132,7 @@ h2 {
   color: #009e89;
   font-weight: 700;
   margin-bottom: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .card:hover {
@@ -439,6 +426,66 @@ ul.options span {
   cursor: pointer;
 }
 
+.cta-center {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  background: var(--primary, #00bfa6);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+  background: var(--primary-dark, #009e89);
+  transform: scale(1.05);
+}
+
+.cta-button-blanc {
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  background: var(--white);
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: ease 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button-blanc:hover {
+  color: var(--text-dark);
+  transform: scale(1.05);
+}
+
+.mini-note {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+.mini-note a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+#commande {
+  text-align: center;
+}
+
+
+
+
+
 .nav-links {
   list-style: none;
   padding: 0;
@@ -447,79 +494,193 @@ ul.options span {
 
 
 .hamburger {
-  position: absolute;
-  top: 1.2rem;
-  right: 1.5rem;
-  background: none;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
   border: none;
   cursor: pointer;
-  z-index: 1001;
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 2.8rem;
-  width: 2.8rem;
+  z-index: 1100;
+  margin-left: auto;
 }
 
-.hamburger:hover {
-  background: none;
-  border-radius: var(--radius);
+
+.hamburger span {
+  height: 3px;
+  width: 24px;
+  background: var(--text-dark, #222);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  margin: 3px 0;
+  transform-origin: center;
 }
 
-.hamburger i {
-  color: var(--text-dark);
-  line-height: 1;
-  transition: transform 0.3s ease;
+
+/* Position normale : 3 barres empilées */
+.hamburger span:nth-child(1) {
+  top: -8px;
+}
+.hamburger span:nth-child(2) {
+  top: 0;
+}
+.hamburger span:nth-child(3) {
+  top: 8px;
 }
 
-.hamburger.active i {
-  transform: rotate(90deg);
+/* Animation vers la croix */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(12.5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-12.5px);
+}
+
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 900;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.visible {
+  display: block;
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
+  header .container {
+    justify-content: center;
+    position: relative;
+    padding: 3%;
+  }
+
+  .logo {
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+  }
+
   .hamburger {
-    display: flex;
+    position: absolute;
+    right: 0;
+    display: flex; /* s'assurer qu’il est bien visible */
   }
 
   .nav {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 50%; /* ajustable entre 70% et 80% */
-    height: 100vh;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     right: 0;
-    left: auto;
+    height: 100vh;
+    width: 80%;
+    max-width: 300px;
+    background: white;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
+    padding: 6rem 2rem;
     transform: translateX(100%);
     transition: transform 0.4s ease;
-    z-index: 1000;
+    z-index: 1050;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
   }
 
   .nav.open {
-    display: flex;
     transform: translateX(0);
   }
 
 
-  /* Liens centrés en colonne */
-  .nav-links {
-    flex-direction: column;
-    gap: 2rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: center;
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4); /* fond sombre */
+    z-index: 900;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
   }
 
-  .nav-links li a {
-    font-size: 1.4rem;
+  .menu-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Liens centrés en colonne */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-dark);
+    text-align: center;
+    transition: color 0.2s ease;
   }
+
+  .nav-links a:hover {
+    color: var(--primary, #00bfa6);
+  }
+
+
+
+  /* Hero */
+  .hero {
+    padding: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem; 
+  }
+
+  .hero p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .cta-button-blanc {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  /**/
+}
+
+
+.hamburger {
+  -webkit-tap-highlight-color: transparent; /* ⬅️ désactive le halo vert Android */
+  outline: none;
+  -webkit-touch-callout: none;
+  box-shadow: none;
+  background: none;
+  border: none;
+}
+
+.hamburger:focus,
+.hamburger:active {
+  outline: none;
+  box-shadow: none;
+  background: none;
+}
+
+.hamburger span {
+  pointer-events: none; /* empêche le halo sur les barres */
 }
