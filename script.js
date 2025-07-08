@@ -6,40 +6,44 @@ function revealOnScroll() {
     if (rect.top < window.innerHeight - 100) {
       el.classList.add('visible');
     } else {
-      el.classList.remove('visible'); // ← permet de re-cacher si on remonte
+      el.classList.remove('visible');
     }
   });
 }
 
-
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
-
-const hamburger = document.querySelector('.hamburger');
-const hamburgerIcon = hamburger.querySelector('i');
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
 const nav = document.querySelector('.nav');
+const overlay = document.getElementById('overlay');
 const navLinks = document.querySelectorAll('.nav-links a');
 
-hamburger.addEventListener('click', () => {
-  nav.classList.toggle('open');
-  hamburger.classList.toggle('active');
+function openMenu() {
+  nav.classList.add('open');
+  hamburger.classList.add('active');
+  overlay.classList.add('visible');
+  document.body.style.overflow = 'hidden';
+}
 
-  // Toggle icône Font Awesome
+function closeMenu() {
+  nav.classList.remove('open');
+  hamburger.classList.remove('active');
+  overlay.classList.remove('visible');
+  document.body.style.overflow = '';
+}
+
+hamburger.addEventListener('click', () => {
   if (nav.classList.contains('open')) {
-    hamburgerIcon.classList.remove('fa-bars');
-    hamburgerIcon.classList.add('fa-xmark');
+    closeMenu();
   } else {
-    hamburgerIcon.classList.remove('fa-xmark');
-    hamburgerIcon.classList.add('fa-bars');
+    openMenu();
   }
 });
 
+overlay.addEventListener('click', closeMenu);
+
 navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    hamburger.classList.remove('active');
-    hamburgerIcon.classList.remove('fa-xmark');
-    hamburgerIcon.classList.add('fa-bars');
-  });
+  link.addEventListener('click', closeMenu);
 });
