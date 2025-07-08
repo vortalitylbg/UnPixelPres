@@ -1,204 +1,49 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Un Pixel Près – Création de sites web</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="icon" href="images/favicon2.png" type="image/x-icon">
+const reveals = document.querySelectorAll('.reveal');
 
+function revealOnScroll() {
+  reveals.forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      el.classList.add('visible');
+    } else {
+      el.classList.remove('visible');
+    }
+  });
+}
 
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 
-</head>
-<body>
-  <header>
-    <div class="container">
-      <div class="logo"><a href="index.html">Un Pixel Près</a></div>
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const nav = document.querySelector('.nav');
+const overlay = document.getElementById('overlay');
+const navLinks = document.querySelectorAll('.nav-links a');
 
-      <!-- Hamburger -->
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+function openMenu() {
+  nav.classList.add('open');
+  hamburger.classList.add('active');
+  overlay.classList.add('visible');
+  document.body.style.overflow = 'hidden';
+}
 
+function closeMenu() {
+  nav.classList.remove('open');
+  hamburger.classList.remove('active');
+  overlay.classList.remove('visible');
+  document.body.style.overflow = '';
+}
 
-      <!-- Navigation -->
-      <nav class="nav" id="nav">
-        <ul class="nav-links">
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">À propos</a></li>
-          <li><a href="#process">Méthode</a></li>
-          <li><a href="#pricing">Tarifs</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+hamburger.addEventListener('click', () => {
+  if (nav.classList.contains('open')) {
+    closeMenu();
+  } else {
+    openMenu();
+  }
+});
 
+overlay.addEventListener('click', closeMenu);
 
-  <section class="hero">
-    <div class="container">
-      <h1>Des sites web modernes & sur mesure</h1>
-      <p>Créateur indépendant de sites web : design élégant, développement rapide, 100% adapté à vos besoins.</p>
-      <a href="#commande" class="cta-button-blanc">Commander mon site</a>
-    </div>
-  </section>
-
-  <section id="services" class="reveal">
-    <div class="container">
-      <h2>Services proposés</h2>
-      <div class="cards">
-        <div class="card"><h3>Site vitrine</h3><p>Présentez votre activité de manière élégante et professionnelle.</p></div>
-        <div class="card"><h3>Landing page</h3><p>Optimisée pour convaincre, vendre, générer des contacts.</p></div>
-        <div class="card"><h3>Sur-mesure</h3><p>Projet complet, totalement adapté à votre stratégie.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="reveal alt">
-    <div class="container">
-      <h2>À propos de moi</h2>
-      <p>Je m'appelle Timothée, j'ai 18 ans et je crée des sites web pour entrepreneurs, associations et petites entreprises. Je conçois des interfaces modernes, rapides et efficaces, avec un accompagnement humain et personnalisé.</p>
-    </div>
-  </section>
-
-  <section id="process" class="reveal">
-    <div class="container">
-      <h2>Comment ça se passe ?</h2>
-      <div class="cards">
-        <div class="card"><h3>1. Vous commandez</h3><p>Vous remplissez un court <a class="process-link" href="#commande">formulaire</a> avec vos besoins (pages, style, couleurs...).</p></div>
-        <div class="card"><h3>2. On échange</h3><p>Je vous contacte rapidement par mail ou appel pour m'assurer d’avoir bien compris votre demande.</p></div>
-        <div class="card"><h3>3. Je démarre</h3><p>Dès que j’ai les infos nécessaires, je commence directement la création du site.</p></div>
-        <div class="card"><h3>4. Lien de suivi</h3><p>Vous recevez un lien temporaire pour suivre l’avancement en temps réel.</p></div>
-        <div class="card"><h3>5. Retours & ajustements</h3><p>Vous me dites ce que vous voulez modifier, ajouter ou ajuster, autant de fois que nécessaire.</p></div>
-        <div class="card"><h3>6. Livraison finale</h3><p>	Une fois le site validé, je vous livre tous les fichiers, prêt à être utilisé ou hébergé.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing" class="reveal alt">
-    <div class="container">
-      <h2>Tarifs</h2>
-      
-      <div class="pricing-grid">
-        <div class="card highlight">
-          <h3>Offre de base</h3>
-          <p class="price">150 €</p>
-          <ul>
-            <li>Un site vitrine 1 page (landing page)</li>
-            <li>Design moderne et sur mesure</li>
-            <li>Code 100 % fait main (HTML/CSS/JS)</li>
-            <li>Responsive mobile / tablette</li>
-            <li>Livraison sous 7 jours</li>
-            <li>Hébergement test gratuit (GitHub Pages)</li>
-            <li>Retouches légères incluses</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Options</h3>
-          <ul class="options">
-            <li><strong>+1 page supplémentaire</strong> <span>+40 €</span></li>
-            <li><strong>Formulaire de contact fonctionnel</strong> <span>+30 €</span></li>
-            <li><strong>Animations simples (scroll, hover…)</strong> <span>+20 €</span></li>
-            <li><strong>Intégration Google Maps ou calendrier</strong> <span>+20 €</span></li>
-            <li><strong>Texte rédigé par moi (copywriting)</strong> <span>+30 €</span></li>
-            <li><strong>Intégration avec Google Analytics / SEO de base</strong> <span>+25 €</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="note">Les prix sont transparents, sans surprise. Vous ne payez que ce dont vous avez besoin.</p>
-    </div>
-  </section>
-
-  <section id="portfolio" class="reveal">
-    <div class="container">
-      <h2>Portfolio</h2>
-      <p class="section-intro">Voici certains projets que j'ai réalisés.</p>
-
-      <div class="portfolio-grid" id="portfolio-home"></div>
-
-      <div class="center">
-        <a href="pages/portfolio.html" class="cta-button">Voir plus de projets</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="commande" class="reveal alt">
-    <div class="container">
-      <h2>Commander un site</h2>
-      <p>Prêt à créer votre site web sur-mesure ? Remplissez un petit questionnaire pour que je comprenne vos besoins.</p>
-
-      <div class="cta-center">
-        <a href="pages/brief.html" class="cta-button">
-          Remplir le formulaire
-        </a>
-      </div>
-
-      <p class="mini-note">Vous avez une question avant de commander ? <a href="#contact"><strong>Contactez-moi ici</strong></a>.</p>
-    </div>
-  </section>
-
-
-
-
-  <section id="contact" class="reveal">
-    <div class="container">
-      <h2>Me contacter</h2>
-      <form action="https://formspree.io/f/mdkzybde" method="POST">
-        <input type="text" name="nom" placeholder="Votre nom" required>
-        <input type="email" name="email" placeholder="Votre email" required>
-        <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
-        <button type="submit">Envoyer</button>
-      </form>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="footer-links">
-        <a href="legal/mentions.html">Mentions légales</a>
-        <a href="legal/conditions.html">Conditions générales</a>
-        <a href="#contact">contact</a>
-      </div>
-      <p>© 2025 – Un Pixel Près • timothee.charruau@icloud.com. Tous droits réservés.</p>
-    </div>
-  </footer>
-
-
-  <!-- Modale -->
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="close-modal" onclick="closeModal()">&times;</span>
-      <img id="modal-img" src="" alt="">
-      <h3 id="modal-title"></h3>
-      <p id="modal-description"></p>
-      <a id="modal-link" href="#" target="_blank" class="visit-btn">Visiter le site</a>
-    </div>
-  </div>
-
-
-  <div class="overlay" id="overlay"></div>
-
-
-
-  <script src="script.js"></script>
-
-  <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
-  <script src="lenis.js"></script>
-
-  <script src="https://kit.fontawesome.com/24c4d1c3cd.js" crossorigin="anonymous"></script>
-
-  <script src="pages/portfolio.js"></script>
-  <script>
-    generatePortfolioCards("#portfolio-home", true, 3);
-  </script>
-
-</body>
-</html>
+navLinks.forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
