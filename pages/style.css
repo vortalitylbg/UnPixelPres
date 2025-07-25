@@ -1,0 +1,277 @@
+body {
+    font-family: Inter, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: white;
+    color: black;
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    padding: 4rem 2rem;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #0077FF;
+}
+
+h2 {
+    margin-top: 2rem;
+    color: #005bbd;
+}
+
+p {
+    line-height: 1.7;
+    margin: 1rem 0;
+}
+
+ul {
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+
+
+
+/* Header */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Compense la hauteur du header pour éviter qu’il ne masque le haut du contenu */
+main {
+    padding-top: 100px; /* ajuste en fonction de la hauteur de ton header */
+}
+
+/* Si ton header est plus ou moins haut selon les tailles d’écran : */
+@media (max-width: 768px) {
+    main {
+        padding-top: 80px;
+    }
+}
+
+
+
+
+main {
+    padding-top: 100px;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    background: #f9fbfd;
+}
+
+h1 {
+    color: #0077FF;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+h2 {
+    color: #005bbd;
+    margin-top: 2.5rem;
+}
+
+p {
+    line-height: 1.7;
+    margin: 1rem 0;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+
+
+
+/* Page Brief */
+
+.form-container {
+    max-width: 800px;
+    margin: 5rem auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 119, 255, 0.1);
+}
+
+h2.section-title {
+    font-size: 2rem;
+    color: #0077FF;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-section {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.form-section.active {
+    display: block;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #222;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    resize: vertical;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #f9f9f9;
+    transition: border 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #0077FF;
+    outline: none;
+}
+
+button {
+    margin-top: 2rem;
+    padding: 0.9rem 2.5rem;
+    border: none;
+    background-color: #0077FF;     
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005fcc;
+}
+
+.progress {
+    text-align: right;
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.confirmation-message {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.3rem;
+    color: #28a745;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .form-container {
+        padding: 1.5rem;
+        margin: 2rem 1rem;
+    }
+
+    h2.section-title {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* Page Merci */
+
+.confirmation-message {
+    max-width: 800px;
+    margin: 10rem auto 4rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 119, 255, 0.1);
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.confirmation-message h1 {
+    font-size: 2.5rem;
+    color: #0077FF;
+    margin-bottom: 1rem;
+}
+
+.confirmation-message p {
+    font-size: 1.2rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.confirmation-message a {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: #0077FF;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background 0.3s ease;
+}
+
+.confirmation-message a:hover {
+    background: #005fcc;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .confirmation-message h1 {
+        font-size: 2rem;
+    }
+
+    .confirmation-message p {
+        font-size: 1rem;
+    }
+}

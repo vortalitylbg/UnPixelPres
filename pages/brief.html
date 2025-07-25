@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brief client</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Un <span>Pixel</span> Près</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="../index.html#hero">Accueil</a></li>
+                <li><a href="../index.html#about">À propos</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../index.html#portfolio">Portfolio</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <a href="#" class="btn-devis">Demander un devis</a>
+            <div class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="overlay"></div>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <form id="brief-form" action="https://formspree.io/f/xqalqbog" method="POST">
+
+                <div class="form-section active">
+                    <div class="progress">1/6</div>
+                    <h2 class="section-title">Informations sur le client</h2>
+                    <label>Nom complet*</label>
+                    <input type="text" name="nom" required>
+                    <label>Email*</label>
+                    <input type="email" name="email" required>
+                    <label>Nom de l’entreprise (facultatif)</label>
+                    <input type="text" name="entreprise">
+                    <label>Secteur d’activité</label>
+                    <input type="text" name="secteur">
+                </div>
+
+                <div class="form-section">
+                    <div class="progress">2/6</div>
+                    <h2 class="section-title">Objectifs du site</h2>
+                    <label>Quel est l’objectif principal de votre site web ?*</label>
+                    <textarea name="objectif" required></textarea>
+                    <label>Public cible*</label>
+                    <input type="text" name="cible" required>
+                </div>
+
+                <div class="form-section">
+                    <div class="progress">3/6</div>
+                    <h2 class="section-title">Contenu</h2>
+                    <label>Disposez-vous déjà des textes ?*</label>
+                    <select name="textes" required>
+                        <option value="">-- Choisissez une option --</option>
+                        <option value="oui">Oui</option>
+                        <option value="non">Non</option>
+                    </select>
+                    <label>Disposez-vous d’images/logo ?*</label>
+                    <select name="images" required>
+                        <option value="">-- Choisissez une option --</option>
+                        <option value="oui">Oui</option>
+                        <option value="non">Non</option>
+                    </select>
+                </div>
+
+                <div class="form-section">
+                    <div class="progress">4/6</div>
+                    <h2 class="section-title">Fonctionnalités</h2>
+                    <label>Pages souhaitées (ex : Accueil, À propos, Contact...)*</label>
+                    <textarea name="pages" required></textarea>
+                    <label>Fonctionnalités spécifiques (formulaire, carte, calendrier…)</label>
+                    <textarea name="fonctions"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <div class="progress">5/6</div>
+                    <h2 class="section-title">Budget & délai</h2>
+                    <label>Budget estimé*</label>
+                    <input type="text" name="budget" required>
+                    <label>Délai souhaité (ex : 15 jours maximum après validation)*</label>
+                    <input type="text" name="delai" required>
+                </div>
+
+                <div class="form-section">
+                    <div class="progress">6/6</div>
+                    <h2 class="section-title">Références et inspirations</h2>
+                    <label>Avez-vous des exemples de sites qui vous inspirent ?</label>
+                    <textarea name="references"></textarea>
+                    <label>Autres commentaires ou demandes</label>
+                    <textarea name="commentaires"></textarea>
+                </div>
+
+                <button type="button" id="next-button">Suivant</button>
+                <button type="submit" id="submit-button" style="display:none">Envoyer</button>
+            </form>
+
+            <div class="confirmation-message" id="confirmation-message">
+                <h1>Merci pour votre demande !</h1>
+                <p>
+                  J'ai bien reçu votre brief. Je vais l'étudier avec attention et vous recontacter rapidement pour discuter de votre projet et vous proposer un devis adapté.
+                </p>
+                <a href="../index.html">Retour à l'accueil</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const sections = document.querySelectorAll('.form-section');
+        const nextBtn = document.getElementById('next-button');
+        const submitBtn = document.getElementById('submit-button');
+        const form = document.getElementById('brief-form');
+        const confirmation = document.getElementById('confirmation-message');
+
+        let currentSection = 0;
+
+        nextBtn.addEventListener('click', () => {
+            const inputs = sections[currentSection].querySelectorAll('input, textarea, select');
+            for (let input of inputs) {
+                if (!input.checkValidity()) {
+                    input.reportValidity();
+                    return;
+                }
+            }
+            sections[currentSection].classList.remove('active');
+            currentSection++;
+            if (currentSection < sections.length) {
+                sections[currentSection].classList.add('active');
+                if (currentSection === sections.length - 1) {
+                    nextBtn.style.display = 'none';
+                    submitBtn.style.display = 'inline-block';
+                }
+            }
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    form.style.display = 'none';
+                    confirmation.style.display = 'block';
+                } else {
+                    alert("Une erreur est survenue, veuillez réessayer.");
+                }
+            });
+        });
+    </script>
+    <script src="../script.js"></script>
+</body>
+</html>
