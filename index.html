@@ -1,206 +1,356 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Un Pixel Près – Création de sites web</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="icon" href="images/favicon2.png" type="image/x-icon">
-
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Un Pixel Près</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="logo"><a href="index.html">Un Pixel Près</a></div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Un <span>Pixel</span> Près</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hero">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#cta" class="btn-devis">Demander un devis</a>
+            <div class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="overlay"></div>
+    </header>
 
-      <!-- Hamburger -->
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Un site web sur-mesure pour</h1>
+            <span><span id="typed"></span></span>
+            <p>Développeur freelance – Sites modernes, performants et adaptés à vos besoins.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary">Commencer mon projet</a>
+                <a href="#portfolio" class="btn-secondary">Voir mes réalisations</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="images/illustration.png" alt="Illustration">
+        </div>
+        <img src="images/bottom_wave.svg" alt="Vague décorative" class="vague">
+    </section>
 
-
-      <!-- Navigation -->
-      <nav class="nav" id="nav">
-        <ul class="nav-links">
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">À propos</a></li>
-          <li><a href="#process">Méthode</a></li>
-          <li><a href="#pricing">Tarifs</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-
-  <section class="hero">
-    <div class="container">
-      <h1>Des sites web modernes & sur mesure</h1>
-      <p>Créateur indépendant de sites web : design élégant, développement rapide, 100% adapté à vos besoins.</p>
-      <a href="#commande" class="cta-button-blanc">Commander mon site</a>
-    </div>
-  </section>
-
-  <section id="services" class="reveal">
-    <div class="container">
-      <h2>Services proposés</h2>
-      <div class="cards">
-        <div class="card"><h3>Site vitrine</h3><p>Présentez votre activité de manière élégante et professionnelle.</p></div>
-        <div class="card"><h3>Landing page</h3><p>Optimisée pour convaincre, vendre, générer des contacts.</p></div>
-        <div class="card"><h3>Sur-mesure</h3><p>Projet complet, totalement adapté à votre stratégie.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="reveal alt">
-    <div class="container">
-      <h2>À propos de moi</h2>
-      <p>Je m'appelle Timothée, j'ai 18 ans et je crée des sites web pour entrepreneurs, associations et petites entreprises. Je conçois des interfaces modernes, rapides et efficaces, avec un accompagnement humain et personnalisé.</p>
-    </div>
-  </section>
-
-  <section id="process" class="reveal">
-    <div class="container">
-      <h2>Comment ça se passe ?</h2>
-      <div class="cards">
-        <div class="card"><h3>1. Présentation de votre projet</h3><p>Vous remplissez <a class="process-link" href="#commande">un formulaire</a> pour me partager vos besoins, vos idées et le style de site que vous avez en tête.</p></div>
-        <div class="card"><h3>2. Échange & devis</h3><p>Je vous contacte rapidement pour clarifier certains points, répondre à vos questions, et vous proposer un devis transparent et adapté à vos attentes.</p></div>
-        <div class="card"><h3>3. Lancement du site</h3><p>Une fois l’acompte initial de 60 % réglé, je démarre la création de votre site et vous recevez un lien temporaire pour suivre l’avancement et me faire part de vos premiers retours.</p></div>
-        <div class="card"><h3>4. Modifications & ajustements</h3><p>Tout au long du développement, vous pouvez me indiquer les points à corriger ou améliorer. Le site évolue selon vos retours pour correspondre à votre vision.</strong>.</p></div>
-        <div class="card"><h3>5. Validation finale</h3><p>Lorsque vous êtes satisfait et le site validé, vous procédez au paiement final des 40 %.</p></div>
-        <div class="card"><h3>6. Livraison</h3><p>Je vous livre le site selon vos préférences : fichiers complets à télécharger ou mise en ligne sur mon hébergement (si cette option est choisie).</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing" class="reveal alt">
-    <div class="container">
-      <h2>Tarifs</h2>
-      
-      <div class="pricing-grid">
-        <div class="card highlight">
-          <h3>Offre de base</h3>
-          <p class="price">150 €</p>
-          <ul>
-            <li>Un site vitrine 1 page (landing page)</li>
-            <li>Design moderne et sur mesure</li>
-            <li>Code 100 % fait main (HTML/CSS/JS)</li>
-            <li>Responsive mobile / tablette</li>
-            <li>Livraison sous 7 jours</li>
-            <li>Hébergement test gratuit (GitHub Pages)</li>
-            <li>Retouches légères incluses</li>
-          </ul>
+    <section id="about" class="about">
+        <div class="about-left">
+            <div class="about-card" data-aos="fade-right">
+                <img src="images/icons/mesure.png" alt="Sites sur-mesure">
+                <p>Sites 100 % sur-mesure</p>
+            </div>
+            <div class="about-card" data-aos="fade-right">
+                <img src="images/icons/optimisation.png" alt="Optimisés">
+                <p>Optimisés pour tous les écrans</p>
+            </div>
+            <div class="about-card" data-aos="fade-right">
+                <img src="images/icons/delais.png" alt="Respect des délais">
+                <p>Respect des délais</p>
+            </div>
         </div>
 
-        <div class="card">
-          <h3>Options</h3>
-          <ul class="options">
-            <li><strong>+1 page supplémentaire</strong> <span>+40 €</span></li>
-            <li><strong>Formulaire de contact fonctionnel</strong> <span>+30 €</span></li>
-            <li><strong>Animations simples (scroll, hover…)</strong> <span>+20 €</span></li>
-            <li><strong>Intégration Google Maps ou calendrier</strong> <span>+20 €</span></li>
-            <li><strong>Texte rédigé par moi (copywriting)</strong> <span>+30 €</span></li>
-            <li><strong>Intégration avec Google Analytics / SEO de base</strong> <span>+25 €</span></li>
-            <li><strong>Hébergement + nom de domaine pendant 1 an : </strong><span>+60 €</span></li>
-            <li><strong>Hébergement mensuel (renouvelable)</strong> <span>+8 €/mois</span></li>
-          </ul>
+        <div class="about-right" data-aos="fade-left">
+            <h2>Qui suis-je ?</h2>
+            <p>
+                Je suis Timothée, développeur web freelance spécialisé dans la création de sites modernes et performants.
+                Mon objectif est d’aider les entrepreneurs et petites entreprises à avoir une présence en ligne efficace et attractive.
+            </p>
         </div>
-      </div>
+    </section>
 
-      <p class="note">Les prix sont transparents, sans surprise. Vous ne payez que ce dont vous avez besoin.</p>
-    </div>
-  </section>
+    <section id="services" class="services">
+        <img src="images/top_wave.svg" alt="Vague haut" class="vague wave-top">
+        
+        <div class="services-container">
+            <h2>Mes services</h2>
+            <div class="services-grid">
 
-  <section id="portfolio" class="reveal">
-    <div class="container">
-      <h2>Portfolio</h2>
-      <p class="section-intro">Voici certains projets que j'ai réalisés.</p>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <img src="images/icons/services/site_vitrine.png" alt="Site vitrine">
+                            <h3>Site vitrine</h3>
+                        </div>
+                        <p class="para">Un site clair et attractif pour présenter votre activité en ligne.</p>
+                    </div>
+                </div>
 
-      <div class="portfolio-grid" id="portfolio-home"></div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <img src="images/icons/services/site_sur_mesure.png" alt="Site sur-mesure">
+                            <h3>Site sur-mesure</h3>
+                        </div>
+                        <p class="para">Un design unique et des fonctionnalités adaptées à vos besoins.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <img src="images/icons/services/code.png" alt="Code fait main">
+                            <h3>Code fait main</h3>
+                        </div>
+                        <p class="para">HTML, CSS & JS propres et optimisés pour la performance.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <img src="images/icons/services/responsive.png" alt="Sites responsives">
+                            <h3>Sites responsives</h3>
+                        </div>
+                        <p class="para">Compatible mobile, tablette et tous les écrans.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-      <div class="center">
-        <a href="pages/portfolio.html" class="cta-button">Voir plus de projets</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="commande" class="reveal alt">
-    <div class="container">
-      <h2>Commander un site</h2>
-      <p>Prêt à créer votre site web sur-mesure ? Remplissez un petit questionnaire pour que je comprenne vos besoins.</p>
-
-      <div class="cta-center">
-        <a href="pages/brief.html" class="cta-button">
-          Remplir le formulaire
-        </a>
-      </div>
-
-      <p class="mini-note">Vous avez une question avant de commander ? <a href="#contact"><strong>Contactez-moi ici</strong></a>.</p>
-    </div>
-  </section>
-
-
-
-
-  <section id="contact" class="reveal">
-    <div class="container">
-      <h2>Me contacter</h2>
-      <form action="https://formspree.io/f/mdkzybde" method="POST">
-        <input type="text" name="nom" placeholder="Votre nom" required>
-        <input type="email" name="email" placeholder="Votre email" required>
-        <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
-        <button type="submit">Envoyer</button>
-      </form>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="footer-links">
-        <a href="legal/mentions.html">Mentions légales</a>
-        <a href="legal/conditions.html">Conditions générales</a>
-        <a href="#contact">contact</a>
-      </div>
-      <p>© 2025 – Un Pixel Près • timothee.charruau@icloud.com. Tous droits réservés.</p>
-    </div>
-  </footer>
+        <img src="images/bottom_wave.svg" alt="Vague bas" class="vague">
+    </section>
 
 
-  <!-- Modale -->
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="close-modal" onclick="closeModal()">&times;</span>
-      <img id="modal-img" src="" alt="">
-      <h3 id="modal-title"></h3>
-      <p id="modal-description"></p>
-      <a id="modal-link" href="#" target="_blank" class="visit-btn">Visiter le site</a>
-    </div>
-  </div>
+    <section id="process" class="process">
+        <h2>Processus de projet</h2>
+        <div class="timeline">
+            <div class="timeline-step left" data-aos="fade-right" data-aos-duration="800">
+                <div class="icon" style="background:#7D5DFB;">
+                    <img src="images/icons/process/presentation.png" alt="Présentation">
+                </div>
+                <div class="content">
+                    <h3>PRÉSENTATION DE VOTRE PROJET</h3>
+                    <p>Vous remplissez un formulaire pour me partager vos besoins, vos idées et le style de site que vous avez en tête.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-step right" data-aos="fade-left" data-aos-duration="800">
+                <div class="icon" style="background:#FF66C4;">
+                    <img src="images/icons/process/devis.png" alt="Échange & Devis">
+                </div>
+                <div class="content">
+                    <h3>ÉCHANGE & DEVIS</h3>
+                    <p>Je vous contacte rapidement pour clarifier certains points, répondre à vos questions, et vous proposer un devis transparent et adapté à vos attentes.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-step left" data-aos="fade-right" data-aos-duration="800">
+                <div class="icon" style="background:#00C48C;">
+                    <img src="images/icons/process/lancement.png" alt="Lancement du site">
+                </div>
+                <div class="content">
+                    <h3>LANCEMENT DU SITE</h3>
+                    <p>Une fois l'acompte initial de 60% réglé, je démarre la création de votre site et vous recevez un lien temporaire pour suivre l’avancement et me faire part de vos premiers retours.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-step right" data-aos="fade-left" data-aos-duration="800">
+                <div class="icon" style="background:#7D5DFB;">
+                    <img src="images/icons/process/modifications.png" alt="Modifications & Ajustements">
+                </div>
+                <div class="content">
+                    <h3>MODIFICATIONS & AJUSTEMENTS</h3>
+                    <p>Tout au long du développement, vous pouvez me indiquer les points à corriger ou améliorer. Le site évolue selon vos retours pour correspondre à votre vision.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-step left" data-aos="fade-right" data-aos-duration="800">
+                <div class="icon" style="background:#FF66C4;">
+                    <img src="images/icons/process/validation.png" alt="Validation finale">
+                </div>
+                <div class="content">
+                    <h3>VALIDATION FINALE</h3>
+                    <p>Lorsque vous êtes satisfait et le site validé, vous procédez au paiement final des 40%.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-step right" data-aos="fade-left" data-aos-duration="800">
+                <div class="icon" style="background:#00C48C;">
+                    <img src="images/icons/process/livraison.png" alt="Livraison">
+                </div>
+                <div class="content">
+                    <h3>LIVRAISON</h3>
+                    <p>Je vous livre le site selon vos préférences : fichiers complets à télécharger ou mise en ligne sur mon hébergement (si cette option est choisie).</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-  <div class="overlay" id="overlay"></div>
+    <section id="tarifs" class="tarifs">
+        <img src="images/top_wave.svg" alt="Vague haut" class="wave-top">
+        <h1>Tarifs</h1>
+
+        <div class="tarifs-container">
+            <!-- Offre de base -->
+            <div class="card-tarif">
+                <h2>Offre de Base</h2>
+                <h3>150€</h3>
+                <ul>
+                    <li>Un site vitrine 1 page (landing page)</li>
+                    <li>Design moderne et sur mesure</li>
+                    <li>Code 100 % fait main (HTML/CSS/JS)</li>
+                    <li>Responsive mobile / tablette</li>
+                    <li>Livraison sous 7 jours</li>
+                    <li>Hébergement test gratuit (GitHub Pages)</li>
+                    <li>Retouches légères incluses</li>
+                </ul>
+            </div>
+
+            <!-- Options supplémentaires -->
+            <div class="card-tarif options-tarifs">
+                <h2>Options</h2>
+                <ul>
+                    <li>+1 page supplémentaire – <strong>+40€</strong></li>
+                    <li>Formulaire de contact fonctionnel – <strong>+30€</strong></li>
+                    <li>Animations simples (scroll, hover…) – <strong>+20€</strong></li>
+                    <li>Intégration Google Maps ou calendrier – <strong>+20€</strong></li>
+                    <li>Texte rédigé par moi (copywriting) – <strong>+30€</strong></li>
+                    <li>Google Analytics / SEO de base – <strong>+25€</strong></li>
+                    <li>Nom de domaine + hébergement (1 an) – <strong>+60€</strong></li>
+                    <li>Hébergement mensuel (renouvelable) – <strong>+8€/mois</strong></li>
+                </ul>
+            </div>
+
+            <!-- Actions post-livraison -->
+            <div class="card-tarif post-livraison-tarif">
+                <h2>Actions post-livraison</h2>
+                <ul>
+                    <li>Vidéo tutorielle personnalisée – <strong>+20€</strong></li>
+                    <li>Ajout ou modification simple – <strong>+30€</strong></li>
+                    <li>Assistance mail ponctuelle – <strong>+10€</strong></li>
+                    <li>Mise en ligne sur votre hébergeur – <strong>+20€</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <img src="images/bottom_wave.svg" alt="Vague bas" class="vague-bas">
+    </section>
 
 
 
-  <script src="script.js"></script>
 
-  <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
-  <script src="lenis.js"></script>
+    <section id="portfolio" class="portfolio-container">
+        <h2 class="portfolio-title">Mon Portfolio</h2>
+        
+        <div class="projects-grid">
+            <!-- Projet 1 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/portfolio/portfolio-UPP.png" alt="UPP Projet">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Un Pixel Près</h3>
+                    <p class="project-description">Ceci est la description du site sur lequel vous vous trouvez actuellement et dont vous pouvez totalement vous inspirer afin de créer votre propre site grâce à mes services</p>
+                    <a href="">
+                        <div class="see-more">
+                            <div class="see-more-button">Voir plus</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Projet 2 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/portfolio/portfolio-UPP-last.png" alt="UPP Projet">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Un Pixel Près (ancienne version)</h3>
+                    <p class="project-description">Ceci est la description de l’ancienne version du site sur lequel vous vous trouvez actuellement et dont vous pouvez totalement vous inspirer afin de créer votre propre site grâce à mes services</p>
+                    <a href="">
+                        <div class="see-more">
+                            <div class="see-more-button">Voir plus</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Projet 3 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/portfolio/portfolio-BAM.png" alt="UPP Projet">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Projet 3</h3>
+                    <p class="project-description">Ceci est la description de l’ancienne version du site sur lequel vous vous trouvez actuellement et dont vous pouvez totalement vous inspirer afin de créer votre propre site grâce à mes services</p>
+                    <a href="">
+                        <div class="see-more">
+                            <div class="see-more-button">Voir plus</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script src="https://kit.fontawesome.com/24c4d1c3cd.js" crossorigin="anonymous"></script>
+    <section class="cta-section" id="cta">
+        <img src="images/top_wave.svg" alt="Vague haut" class="vague-haut">
 
-  <script src="pages/portfolio.js"></script>
-  <script>
-    generatePortfolioCards("#portfolio-home", true, 3);
-  </script>
+        <div class="cta-wrapper">
+            <div class="cta-container" data-aos="zoom-in">
+                <h2>Prêt à donner vie à votre projet&nbsp;?</h2>
+                <p>Remplissez le formulaire pour me présenter vos besoins et recevoir une réponse rapide.</p>
+                <a href="pages/brief.html" id="boutton-cta" class="cta-button">Remplir le formulaire</a>
+            </div>
+        </div>
 
+        <img src="images/bottom_wave.svg" alt="Vague bas" class="vague-bas">
+    </section>
+
+
+    <section id="contact" class="contact">
+        <h2>Contactez-moi</h2>
+        <p>Vous avez des questions sur mes services ? N’hésitez pas à me contacter, je serai ravi de vous aider !</p>
+        
+        <form action="#" method="post" class="contact-form">
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre email" required>
+            <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+            <button type="submit" class="btn-primary">Envoyer</button>
+        </form>
+    </section>
+    
+
+
+    <footer class="footer-legal">
+        <div class="footer-legal-container">
+            <ul>
+                <li><a href="pages/mentions.html">Mentions légales</a></li>
+                <li><a href="pages/cgv.html">Conditions générales de vente</a></li>
+                <li><a href="pages/confidentialite.html">Politique de confidentialité</a></li>
+            </ul>
+            <p>&copy; 2025 Un Pixel Près – Tous droits réservés.</p>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="typed.js"></script>
+
+    <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+    <script src="lenis.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
