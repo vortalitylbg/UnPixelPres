@@ -1,49 +1,48 @@
-const reveals = document.querySelectorAll('.reveal');
+document.addEventListener('DOMContentLoaded', function() {
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('nav-links');
+    const overlay = document.querySelector('.overlay');
+    const navItems = document.querySelectorAll('.nav-links a');
 
-function revealOnScroll() {
-  reveals.forEach((el) => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      el.classList.add('visible');
-    } else {
-      el.classList.remove('visible');
-    }
-  });
-}
+    // Gestion du clic sur le burger
+    burger.addEventListener('click', function(e) {
+        e.stopPropagation(); // Empêche la fermeture immédiate
+        this.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
 
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
+    // Fermer le menu quand on clique sur un lien
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            burger.classList.remove('active');
+            navLinks.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
 
-// Hamburger menu
-const hamburger = document.getElementById('hamburger');
-const nav = document.querySelector('.nav');
-const overlay = document.getElementById('overlay');
-const navLinks = document.querySelectorAll('.nav-links a');
+    // Fermer le menu quand on clique sur l'overlay
+    overlay.addEventListener('click', function() {
+        burger.classList.remove('active');
+        navLinks.classList.remove('active');
+        this.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    });
 
-function openMenu() {
-  nav.classList.add('open');
-  hamburger.classList.add('active');
-  overlay.classList.add('visible');
-  document.body.style.overflow = 'hidden';
-}
+    // Empêcher la fermeture quand on clique dans le menu
+    navLinks.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
 
-function closeMenu() {
-  nav.classList.remove('open');
-  hamburger.classList.remove('active');
-  overlay.classList.remove('visible');
-  document.body.style.overflow = '';
-}
-
-hamburger.addEventListener('click', () => {
-  if (nav.classList.contains('open')) {
-    closeMenu();
-  } else {
-    openMenu();
-  }
-});
-
-overlay.addEventListener('click', closeMenu);
-
-navLinks.forEach(link => {
-  link.addEventListener('click', closeMenu);
+    // Fermer le menu si on redimensionne en desktop
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) {
+            burger.classList.remove('active');
+            navLinks.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
 });
