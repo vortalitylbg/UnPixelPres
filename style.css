@@ -5,9 +5,10 @@
     scroll-behavior: smooth;
 }
 
-body {
+html, body {
     font-family: Inter, sans-serif;
     overflow-x: hidden;
+    max-width: 100%;
 }
 
 section {
@@ -785,6 +786,7 @@ header {
 
 .tarifs-container {
     padding: 10rem 5% 5rem;
+    padding-top: 1rem;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -872,6 +874,7 @@ header {
         text-align: center;
         
     }
+
     .card-tarif {
         width: 100%;
         max-width: 90%;
@@ -1108,10 +1111,11 @@ header {
         
 @media (max-width: 768px) {
     .project-card {
-        width: 900%;
+        width: 90%;
     }
     .projects-grid {
         width: 100%;
+        justify-content: center;
     }
     .portfolio-container {
         padding: 1rem 2rem;
@@ -1198,9 +1202,14 @@ header {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    
     .cta-container h2 {
         font-size: 1.6rem;
+    }
+
+    .cta-wrapper {
+        padding: 5rem 2rem;
     }
 
     .cta-container p {
