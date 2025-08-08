@@ -994,6 +994,111 @@ header {
     color: #fff;
     transition: all 0.2s ease;
 }
+
+.portfolio-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+/* Styles du Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal-overlay.show .modal {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal h3 {
+  text-align: center;
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.modal img {
+  width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.modal p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.8rem;
+  right: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+.modal a.btn-primary {
+  display: inline-block;
+  text-align: center;
+  background-color: #0066ff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  margin: 0 auto;
+  display: block;
+  max-width: 200px;
+}
+
+.modal a.btn-primary:hover {
+  background-color: #0051cc;
+}
+
+
+
         
 @media (max-width: 1200px) {
     .project-card {
@@ -1012,6 +1117,7 @@ header {
         padding: 1rem 2rem;
     }
 }
+
 
 
 
