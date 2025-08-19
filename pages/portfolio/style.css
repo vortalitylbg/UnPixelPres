@@ -31,6 +31,7 @@ h1 {
 .project-card {
     cursor: pointer;
     width: 25%;
+    margin-top: 3%;
     height: 30rem;
     background: white;
     border-radius: 17px;
@@ -327,6 +328,7 @@ header {
 }
 
 .logo {
+    color: black;
     font-size: 1.7rem;
     font-weight: bold;
 }
