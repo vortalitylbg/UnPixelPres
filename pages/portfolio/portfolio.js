@@ -1,6 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const projets = [
         {
+            titre: "Créacouture",
+            image: "https://unpixelpres.fr/images/portfolio/portfolio-creacouture.png",
+            description: "Site web vitrine de vente de cours de couture factice. Ce site me permet de vous présenter mes compétences en web design.",
+            lien: "https://vortalitylbg.github.io/CreaCouture",
+        },
+        {
             titre: "Un Pixel Près",
             image: "https://unpixelpres.fr/images/portfolio/portfolio-UPP.png",
             description: "Ceci est la description du site sur lequel vous vous trouvez actuellement et dont vous pouvez totalement vous inspirer afin de créer votre propre site grâce à mes services",
@@ -13,10 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
             lien: "https://unpixelpres.fr",
         },
         {
-            titre: "Projet 3",
+            titre: "Bac à Marée",
             image: "https://unpixelpres.fr/images/portfolio/portfolio-BAM.png",
             description: "Ceci est la description de l’ancienne version du site sur lequel vous vous trouvez actuellement et dont vous pouvez totalement vous inspirer afin de créer votre propre site grâce à mes services",
-            lien: "https://unpixelpres.fr",
+            lien: "https://vortalitylbg.github.io/Projet_bac_a_maree",
         }
     ];
 
