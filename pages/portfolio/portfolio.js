@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
             titre: "Un Pixel Près (ancienne version)",
             image: "https://unpixelpres.fr/images/portfolio/portfolio-UPP-last.png",
             description: "Ceci est la description de l’ancienne version du site sur lequel vous vous trouvez actuellement et dont vous pouvez totalement vous inspirer afin de créer votre propre site grâce à mes services",
-            lien: "https://unpixelpres.fr",
+            lien: "https://vortalitylbg.github.io/UPP-Tests",
         },
         {
             titre: "Bac à Marée",
