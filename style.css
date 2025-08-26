@@ -11,6 +11,10 @@ html, body {
     max-width: 100%;
 }
 
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
 section {
     margin: 0;
     padding: 0;
@@ -279,17 +283,19 @@ header {
 }
 
 .btn-primary {
-    background: #007bff;
+    background: linear-gradient(135deg, #0077FF, #0056CC);
     color: white;
     padding: 0.8rem 1.5rem;
     border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0,119,255,0.3);
     text-decoration: none;
     font-weight: bold;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-    background: #0056b3;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0,119,255,0.4);
 }
 
 .btn-secondary {
@@ -376,7 +382,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 4rem 5%;
-    background: #CFE8F3; /* bleu clair comme sur l'image */
+    background: #CFE8F3;
     gap: 3rem;
 }
 
@@ -916,8 +922,9 @@ header {
         
 .project-card {
     cursor: pointer;
+    position: relative;
     width: 28%;
-    height: 35rem;
+    height: auto;
     background: white;
     border-radius: 17px;
     border: 2px solid #0077FF;
@@ -946,6 +953,10 @@ header {
     display: block;
     object-fit: cover;
     transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
 }
         
 .project-image::before {
@@ -1188,20 +1199,21 @@ header {
 }
 
 .cta-button {
-    background: #0077FF;
+    background: linear-gradient(135deg, #0077FF, #0056CC);
     color: white;
     padding: 0.9rem 2rem;
     font-size: 1rem;
     border: none;
     border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0,119,255,0.3);
     text-decoration: none;
     font-weight: 600;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .cta-button:hover {
-    background: #0056b3;
-    transform: scale(1.05);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0,119,255,0.4);
 }
 
 /* Responsive */
