@@ -188,6 +188,7 @@
       }
       sections[currentSection].classList.remove('active');
       currentSection++;
+      updatePrevButtonStyle();
       if (currentSection < sections.length) {
         sections[currentSection].classList.add('active');
         if (currentSection === sections.length - 1) {
@@ -196,18 +197,29 @@
         }
       }
     });
+    
 
     const prevBtn = document.getElementById('prev-button');
 
     prevBtn.addEventListener('click', () => {
-    if (currentSection > 0) {
-        sections[currentSection].classList.remove('active');
-        currentSection--;
-        sections[currentSection].classList.add('active');
-        submitBtn.style.display = 'none';
-        nextBtn.style.display = 'inline-block';
-    }
+        if (currentSection > 0) {
+            sections[currentSection].classList.remove('active');
+            currentSection--;
+            sections[currentSection].classList.add('active');
+            submitBtn.style.display = 'none';
+            nextBtn.style.display = 'inline-block';
+            updatePrevButtonStyle();
+        }
     });
+
+    function updatePrevButtonStyle() {
+        if (currentSection === 0) {
+            prevBtn.classList.remove('active');
+        } else {
+            prevBtn.classList.add('active');
+        }
+    }
+
 
 
     form.addEventListener('submit', (e) => {
