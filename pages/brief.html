@@ -35,7 +35,7 @@
 
         <!-- 1. Infos client -->
         <div class="form-section active">
-          <div class="progress">1/6</div>
+          <div class="progress">1/7</div>
           <h2 class="section-title">Informations sur le client</h2>
           <label>Nom complet*</label>
           <input type="text" name="nom" required>
@@ -49,7 +49,7 @@
 
         <!-- 2. Objectifs -->
         <div class="form-section">
-          <div class="progress">2/6</div>
+          <div class="progress">2/7</div>
           <h2 class="section-title">Objectifs du site</h2>
           <label>Quel est l’objectif principal de votre site web ?*</label>
           <textarea name="objectif" required></textarea>
@@ -59,7 +59,7 @@
 
         <!-- 3. Contenu -->
         <div class="form-section">
-          <div class="progress">3/6</div>
+          <div class="progress">3/7</div>
           <h2 class="section-title">Contenu</h2>
           <label>Disposez-vous déjà des textes ?*</label>
           <select name="textes" required>
@@ -75,61 +75,76 @@
           </select>
         </div>
 
-        <!-- 4. Fonctionnalités -->
+        <!-- 4. Structure du site -->
         <div class="form-section">
-          <div class="progress">4/6</div>
-          <h2 class="section-title">Fonctionnalités & options</h2>
+          <div class="progress">4/7</div>
+          <h2 class="section-title">Structure du site</h2>
           <label>Pages souhaitées (ex : Accueil, À propos, Contact...)*</label>
           <textarea name="pages" required></textarea>
+          <p class="info">⚠️ L’offre de base inclut une page. Chaque page supplémentaire = +20€</p>
+        </div>
 
-          <label>Voulez-vous un formulaire de contact ?*</label>
+        <!-- 5. Options -->
+        <div class="form-section">
+          <div class="progress">5/7</div>
+          <h2 class="section-title">Options</h2>
+
+          <label>Voulez-vous un formulaire de contact fonctionnel (+15€) ?*</label>
           <select name="formulaire" required>
             <option value="">-- Choisissez une option --</option>
             <option value="oui">Oui</option>
             <option value="non">Non</option>
           </select>
 
-          <label>Souhaitez-vous des animations simples (hover, scroll…)?*</label>
+          <label>Souhaitez-vous des animations simples (hover, scroll…) (+20€) ?*</label>
           <select name="animations" required>
             <option value="">-- Choisissez une option --</option>
             <option value="oui">Oui</option>
             <option value="non">Non</option>
           </select>
 
-          <label>Souhaitez-vous que je rédige les textes (copywriting) ?*</label>
+          <label>Souhaitez-vous que je rédige les textes (copywriting, +15€/page) ?*</label>
           <select name="copywriting" required>
             <option value="">-- Choisissez une option --</option>
             <option value="oui">Oui</option>
             <option value="non">Non</option>
           </select>
 
-          <label>Avez-vous besoin d’une version multilingue ?*</label>
+          <label>Avez-vous besoin d’une version multilingue (+50€) ?*</label>
           <select name="multilingue" required>
             <option value="">-- Choisissez une option --</option>
             <option value="oui">Oui</option>
             <option value="non">Non</option>
           </select>
 
-          <label>Voulez-vous intégrer des éléments interactifs (carte, calendrier, FAQ, galerie...) ?*</label>
+          <label>Voulez-vous intégrer des éléments interactifs (carte, calendrier, galerie...) (+20€) ?*</label>
           <select name="interactif" required>
+            <option value="">-- Choisissez une option --</option>
+            <option value="oui">Oui</option>
+            <option value="non">Non</option>
+          </select>
+
+          <label>Souhaitez-vous un système d’authentification (connexion/inscription, +45€) ?*</label>
+          <select name="authentification" required>
             <option value="">-- Choisissez une option --</option>
             <option value="oui">Oui</option>
             <option value="non">Non</option>
           </select>
         </div>
 
-        <!-- 5. Forfaits -->
+        <!-- 6. Forfaits -->
         <div class="form-section">
-          <div class="progress">5/6</div>
+          <div class="progress">6/7</div>
           <h2 class="section-title">Forfaits complémentaires</h2>
-          <label>Souhaitez-vous que je m’occupe du nom de domaine + hébergement (40€/an) ?*</label>
+
+          <label>Souhaitez-vous que je m’occupe du nom de domaine + hébergement (+40€/an) ?*</label>
           <select name="hebergement" required>
             <option value="">-- Choisissez une option --</option>
             <option value="oui">Oui</option>
             <option value="non">Non</option>
           </select>
 
-          <label>Voulez-vous une maintenance annuelle (modifications simples illimitées, 99€/an) ?*</label>
+          <label>Voulez-vous une maintenance annuelle (modifications simples illimitées, +99€/an) ?*</label>
           <select name="maintenance" required>
             <option value="">-- Choisissez une option --</option>
             <option value="oui">Oui</option>
@@ -137,9 +152,9 @@
           </select>
         </div>
 
-        <!-- 6. Budget & inspirations -->
+        <!-- 7. Budget & inspirations -->
         <div class="form-section">
-          <div class="progress">6/6</div>
+          <div class="progress">7/7</div>
           <h2 class="section-title">Budget & inspirations</h2>
           <label>Budget estimé* (min. 150€)</label>
           <input type="number" name="budget" min="150" step="10" required>
@@ -162,7 +177,7 @@
       <div class="confirmation-message" id="confirmation-message">
         <h1>Merci pour votre demande !</h1>
         <p>
-          J'ai bien reçu votre brief. Je vais l'étudier avec attention et vous recontacter rapidement pour discuter de votre projet et vous proposer un devis adapté.
+          J'ai bien reçu votre brief. Je vais l'étudier et vous recontacter rapidement pour discuter de votre projet et vous proposer un devis adapté.
         </p>
         <a href="../index.html">Retour à l'accueil</a>
       </div>
