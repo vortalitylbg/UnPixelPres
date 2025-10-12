@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demande de site</title>
+  <title>Demande de site | Un Pixel Près</title>
   <link rel="icon" type="image/png" sizes="96x96" href="https://unpixelpres.fr/images/favicon.png">
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
   <header>
@@ -30,230 +35,398 @@
   </header>
 
   <main>
-    <div class="form-container">
-      <form id="brief-form" action="https://usebasin.com/f/9bc5bd8f9d4c" method="POST">
+    <div class="brief-hero">
+      <h1 class="brief-hero-title">Créons ensemble votre projet web</h1>
+      <p class="brief-hero-subtitle">Remplissez ce formulaire pour que je puisse comprendre vos besoins et vous proposer un devis personnalisé</p>
+    </div>
 
-        <!-- 1. Infos client -->
-        <div class="form-section active">
-          <div class="progress">1/7</div>
-          <h2 class="section-title">Informations sur le client</h2>
-          <label>Nom complet*</label>
-          <input type="text" name="nom" required>
-          <label>Email*</label>
-          <input type="email" name="email" required>
-          <label>Nom de l’entreprise (facultatif)</label>
-          <input type="text" name="entreprise">
-          <label>Secteur d’activité</label>
-          <input type="text" name="secteur">
+    <div class="form-wrapper">
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
         </div>
-
-        <!-- 2. Objectifs -->
-        <div class="form-section">
-          <div class="progress">2/7</div>
-          <h2 class="section-title">Objectifs du site</h2>
-          <label>Quel est l’objectif principal de votre site web ?*</label>
-          <textarea name="objectif" required></textarea>
-          <label>Public cible*</label>
-          <input type="text" name="cible" required>
+        <div class="progress-steps">
+          <div class="progress-step active" data-step="1">
+            <div class="step-circle">1</div>
+            <span class="step-label">Infos</span>
+          </div>
+          <div class="progress-step" data-step="2">
+            <div class="step-circle">2</div>
+            <span class="step-label">Objectifs</span>
+          </div>
+          <div class="progress-step" data-step="3">
+            <div class="step-circle">3</div>
+            <span class="step-label">Contenu</span>
+          </div>
+          <div class="progress-step" data-step="4">
+            <div class="step-circle">4</div>
+            <span class="step-label">Structure</span>
+          </div>
+          <div class="progress-step" data-step="5">
+            <div class="step-circle">5</div>
+            <span class="step-label">Options</span>
+          </div>
+          <div class="progress-step" data-step="6">
+            <div class="step-circle">6</div>
+            <span class="step-label">Forfaits</span>
+          </div>
+          <div class="progress-step" data-step="7">
+            <div class="step-circle">7</div>
+            <span class="step-label">Budget</span>
+          </div>
         </div>
+      </div>
 
-        <!-- 3. Contenu -->
-        <div class="form-section">
-          <div class="progress">3/7</div>
-          <h2 class="section-title">Contenu</h2>
-          <label>Disposez-vous déjà des textes ?*</label>
-          <select name="textes" required>
-            <option value="">-- Choisissez une option --</option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
-          </select>
-          <label>Disposez-vous d’images/logo ?*</label>
-          <select name="images" required>
-            <option value="">-- Choisissez une option --</option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
-          </select>
+      <div class="form-container">
+        <form id="brief-form" action="https://usebasin.com/f/9bc5bd8f9d4c" method="POST">
+
+          <!-- 1. Infos client -->
+          <div class="form-section active" data-section="1">
+            <div class="section-icon"><i class="fas fa-user-circle"></i></div>
+            <h2 class="section-title">Informations sur le client</h2>
+            <p class="section-description">Commençons par faire connaissance</p>
+            
+            <div class="form-group">
+              <label for="nom">Nom complet <span class="required">*</span></label>
+              <input type="text" id="nom" name="nom" placeholder="Jean Dupont" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email <span class="required">*</span></label>
+              <input type="email" id="email" name="email" placeholder="jean.dupont@exemple.fr" required>
+            </div>
+
+            <div class="form-group">
+              <label for="entreprise">Nom de l'entreprise</label>
+              <input type="text" id="entreprise" name="entreprise" placeholder="Ma Super Entreprise (facultatif)">
+            </div>
+
+            <div class="form-group">
+              <label for="secteur">Secteur d'activité</label>
+              <input type="text" id="secteur" name="secteur" placeholder="Ex: Restaurant, E-commerce, Artisanat...">
+            </div>
+          </div>
+
+          <!-- 2. Objectifs -->
+          <div class="form-section" data-section="2">
+            <div class="section-icon"><i class="fas fa-bullseye"></i></div>
+            <h2 class="section-title">Objectifs du site</h2>
+            <p class="section-description">Quel est le but de votre site web ?</p>
+            
+            <div class="form-group">
+              <label for="objectif">Objectif principal <span class="required">*</span></label>
+              <textarea id="objectif" name="objectif" rows="4" placeholder="Ex: Présenter mes services, vendre en ligne, générer des leads..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="cible">Public cible <span class="required">*</span></label>
+              <input type="text" id="cible" name="cible" placeholder="Ex: Particuliers, Entreprises B2B, Jeunes 18-25 ans..." required>
+            </div>
+          </div>
+
+          <!-- 3. Contenu -->
+          <div class="form-section" data-section="3">
+            <div class="section-icon"><i class="fas fa-file-alt"></i></div>
+            <h2 class="section-title">Contenu</h2>
+            <p class="section-description">Avez-vous déjà préparé vos contenus ?</p>
+            
+            <div class="form-group">
+              <label for="textes">Disposez-vous déjà des textes ? <span class="required">*</span></label>
+              <div class="radio-group">
+                <label class="radio-card">
+                  <input type="radio" name="textes" value="oui" required>
+                  <span class="radio-content">
+                    <span class="radio-icon"><i class="fas fa-check-circle"></i></span>
+                    <span class="radio-text">Oui, j'ai mes textes</span>
+                  </span>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="textes" value="non" required>
+                  <span class="radio-content">
+                    <span class="radio-icon"><i class="fas fa-pen-fancy"></i></span>
+                    <span class="radio-text">Non, j'ai besoin d'aide</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="images">Disposez-vous d'images/logo ? <span class="required">*</span></label>
+              <div class="radio-group">
+                <label class="radio-card">
+                  <input type="radio" name="images" value="oui" required>
+                  <span class="radio-content">
+                    <span class="radio-icon"><i class="fas fa-images"></i></span>
+                    <span class="radio-text">Oui, j'ai mes visuels</span>
+                  </span>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="images" value="non" required>
+                  <span class="radio-content">
+                    <span class="radio-icon"><i class="fas fa-palette"></i></span>
+                    <span class="radio-text">Non, j'ai besoin d'aide</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Structure du site -->
+          <div class="form-section" data-section="4">
+            <div class="section-icon"><i class="fas fa-sitemap"></i></div>
+            <h2 class="section-title">Structure du site</h2>
+            <p class="section-description">Quelles pages souhaitez-vous ?</p>
+            
+            <div class="form-group">
+              <label for="pages">Pages souhaitées <span class="required">*</span></label>
+              <textarea id="pages" name="pages" rows="4" placeholder="Ex: Accueil, À propos, Services, Portfolio, Contact..." required></textarea>
+              <div class="info-box">
+                <span class="info-icon"><i class="fas fa-lightbulb"></i></span>
+                <span>L'offre de base inclut une page. Chaque page supplémentaire = +20€</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Options -->
+          <div class="form-section" data-section="5">
+            <div class="section-icon"><i class="fas fa-cogs"></i></div>
+            <h2 class="section-title">Options</h2>
+            <p class="section-description">Personnalisez votre site avec des fonctionnalités</p>
+            
+            <div class="options-grid">
+              <div class="option-card">
+                <div class="option-header">
+                  <span class="option-icon"><i class="fas fa-envelope"></i></span>
+                  <span class="option-price">+15€</span>
+                </div>
+                <h3 class="option-title">Formulaire de contact</h3>
+                <p class="option-desc">Formulaire fonctionnel avec envoi d'emails</p>
+                <div class="radio-group-inline">
+                  <label class="radio-inline">
+                    <input type="radio" name="formulaire" value="oui" required>
+                    <span>Oui</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="formulaire" value="non" required>
+                    <span>Non</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="option-card">
+                <div class="option-header">
+                  <span class="option-icon"><i class="fas fa-magic"></i></span>
+                  <span class="option-price">+20€</span>
+                </div>
+                <h3 class="option-title">Animations</h3>
+                <p class="option-desc">Effets au survol et au scroll</p>
+                <div class="radio-group-inline">
+                  <label class="radio-inline">
+                    <input type="radio" name="animations" value="oui" required>
+                    <span>Oui</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="animations" value="non" required>
+                    <span>Non</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="option-card">
+                <div class="option-header">
+                  <span class="option-icon"><i class="fas fa-pen-nib"></i></span>
+                  <span class="option-price">+15€/page</span>
+                </div>
+                <h3 class="option-title">Copywriting</h3>
+                <p class="option-desc">Rédaction professionnelle des textes</p>
+                <div class="radio-group-inline">
+                  <label class="radio-inline">
+                    <input type="radio" name="copywriting" value="oui" required>
+                    <span>Oui</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="copywriting" value="non" required>
+                    <span>Non</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="option-card">
+                <div class="option-header">
+                  <span class="option-icon"><i class="fas fa-globe"></i></span>
+                  <span class="option-price">+50€</span>
+                </div>
+                <h3 class="option-title">Multilingue</h3>
+                <p class="option-desc">Version dans plusieurs langues</p>
+                <div class="radio-group-inline">
+                  <label class="radio-inline">
+                    <input type="radio" name="multilingue" value="oui" required>
+                    <span>Oui</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="multilingue" value="non" required>
+                    <span>Non</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="option-card">
+                <div class="option-header">
+                  <span class="option-icon"><i class="fas fa-puzzle-piece"></i></span>
+                  <span class="option-price">+20€</span>
+                </div>
+                <h3 class="option-title">Éléments interactifs</h3>
+                <p class="option-desc">Carte, calendrier, galerie...</p>
+                <div class="radio-group-inline">
+                  <label class="radio-inline">
+                    <input type="radio" name="interactif" value="oui" required>
+                    <span>Oui</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="interactif" value="non" required>
+                    <span>Non</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="option-card">
+                <div class="option-header">
+                  <span class="option-icon"><i class="fas fa-lock"></i></span>
+                  <span class="option-price">+45€</span>
+                </div>
+                <h3 class="option-title">Authentification</h3>
+                <p class="option-desc">Système de connexion/inscription</p>
+                <div class="radio-group-inline">
+                  <label class="radio-inline">
+                    <input type="radio" name="authentification" value="oui" required>
+                    <span>Oui</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="authentification" value="non" required>
+                    <span>Non</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Forfaits -->
+          <div class="form-section" data-section="6">
+            <div class="section-icon"><i class="fas fa-box-open"></i></div>
+            <h2 class="section-title">Forfaits complémentaires</h2>
+            <p class="section-description">Services d'hébergement et maintenance</p>
+            
+            <div class="forfait-card">
+              <div class="forfait-header">
+                <span class="forfait-icon"><i class="fas fa-server"></i></span>
+                <div class="forfait-info">
+                  <h3>Hébergement & Nom de domaine</h3>
+                  <p>Je m'occupe de tout pour vous</p>
+                </div>
+                <span class="forfait-price">+40€/an</span>
+              </div>
+              <div class="radio-group-inline">
+                <label class="radio-inline">
+                  <input type="radio" name="hebergement" value="oui" required>
+                  <span>Oui</span>
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="hebergement" value="non" required>
+                  <span>Non</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="forfait-card">
+              <div class="forfait-header">
+                <span class="forfait-icon"><i class="fas fa-tools"></i></span>
+                <div class="forfait-info">
+                  <h3>Maintenance annuelle</h3>
+                  <p>Modifications simples illimitées</p>
+                </div>
+                <span class="forfait-price">+99€/an</span>
+              </div>
+              <div class="radio-group-inline">
+                <label class="radio-inline">
+                  <input type="radio" name="maintenance" value="oui" required>
+                  <span>Oui</span>
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="maintenance" value="non" required>
+                  <span>Non</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Budget & inspirations -->
+          <div class="form-section" data-section="7">
+            <div class="section-icon"><i class="fas fa-euro-sign"></i></div>
+            <h2 class="section-title">Budget & inspirations</h2>
+            <p class="section-description">Dernières informations pour finaliser votre devis</p>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="budget">Budget estimé <span class="required">*</span></label>
+                <div class="input-with-icon">
+                  <span class="input-icon">€</span>
+                  <input type="number" id="budget" name="budget" min="150" step="10" placeholder="150" required>
+                </div>
+                <small class="input-hint">Minimum 150€</small>
+              </div>
+
+              <div class="form-group">
+                <label for="delai">Délai souhaité <span class="required">*</span></label>
+                <div class="input-with-icon">
+                  <span class="input-icon"><i class="fas fa-calendar-alt"></i></span>
+                  <input type="number" id="delai" name="delai" min="7" step="1" placeholder="7" required>
+                </div>
+                <small class="input-hint">Minimum 7 jours</small>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="references">Sites qui vous inspirent</label>
+              <textarea id="references" name="references" rows="3" placeholder="Partagez des liens de sites que vous aimez..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="commentaires">Autres commentaires ou demandes</label>
+              <textarea id="commentaires" name="commentaires" rows="4" placeholder="Toute information supplémentaire qui pourrait m'aider..."></textarea>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="form-navigation">
+            <button type="button" id="prev-button" class="btn-nav btn-prev" disabled>
+              <span class="btn-icon"><i class="fas fa-arrow-left"></i></span>
+              <span>Retour</span>
+            </button>
+            <button type="button" id="next-button" class="btn-nav btn-next">
+              <span>Suivant</span>
+              <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+            </button>
+            <button type="submit" id="submit-button" class="btn-nav btn-submit" style="display:none">
+              <span>Envoyer ma demande</span>
+              <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+            </button>
+          </div>
+        </form>
+
+        <div class="confirmation-message" id="confirmation-message">
+          <div class="confirmation-icon"><i class="fas fa-check-circle"></i></div>
+          <h1>Merci pour votre demande !</h1>
+          <p>
+            J'ai bien reçu votre brief. Je vais l'étudier attentivement et vous recontacter rapidement pour discuter de votre projet et vous proposer un devis personnalisé.
+          </p>
+          <a href="../index.html" class="btn-home"><i class="fas fa-home"></i> Retour à l'accueil</a>
         </div>
-
-        <!-- 4. Structure du site -->
-        <div class="form-section">
-          <div class="progress">4/7</div>
-          <h2 class="section-title">Structure du site</h2>
-          <label>Pages souhaitées (ex : Accueil, À propos, Contact...)*</label>
-          <textarea name="pages" required></textarea>
-          <p class="info">L’offre de base inclut une page. Chaque page supplémentaire = +20€</p>
-        </div>
-
-        <!-- 5. Options -->
-        <div class="form-section">
-          <div class="progress">5/7</div>
-          <h2 class="section-title">Options</h2>
-
-          <label>Voulez-vous un formulaire de contact fonctionnel (+15€) ?*</label>
-          <select name="formulaire" required>
-            <option value="">-- Choisissez une option --</option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
-          </select>
-
-          <label>Souhaitez-vous des animations simples (hover, scroll…) (+20€) ?*</label>
-          <select name="animations" required>
-            <option value="">-- Choisissez une option --</option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
-          </select>
-
-          <label>Souhaitez-vous que je rédige les textes (copywriting, +15€/page) ?*</label>
-          <select name="copywriting" required>
-            <option value="">-- Choisissez une option --</option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
-          </select>
-
-          <label>Avez-vous besoin d’une version multilingue (+50€) ?*</label>
-          <select name="multilingue" required>
-            <option value="">-- Choisissez une option --</option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
-          </select>
-
-          <label>Voulez-vous intégrer des éléments interactifs (carte, calendrier, galerie...) (+20€) ?*</label>
-          <select name="interactif" required>
-            <option value="">-- Choisissez une option --</option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
-          </select>
-
-          <label>Souhaitez-vous un système d’authentification (connexion/inscription, +45€) ?*</label>
-          <select name="authentification" required>
-            <option value="">-- Choisissez une option --</option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
-          </select>
-        </div>
-
-        <!-- 6. Forfaits -->
-        <div class="form-section">
-          <div class="progress">6/7</div>
-          <h2 class="section-title">Forfaits complémentaires</h2>
-
-          <label>Souhaitez-vous que je m’occupe du nom de domaine + hébergement (+40€/an) ?*</label>
-          <select name="hebergement" required>
-            <option value="">-- Choisissez une option --</option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
-          </select>
-
-          <label>Voulez-vous une maintenance annuelle (modifications simples illimitées, +99€/an) ?*</label>
-          <select name="maintenance" required>
-            <option value="">-- Choisissez une option --</option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
-          </select>
-        </div>
-
-        <!-- 7. Budget & inspirations -->
-        <div class="form-section">
-          <div class="progress">7/7</div>
-          <h2 class="section-title">Budget & inspirations</h2>
-          <label>Budget estimé* (min. 150€)</label>
-          <input type="number" name="budget" min="150" step="10" required>
-          <label>Délai souhaité* (min. 7 jours)</label>
-          <input type="number" name="delai" min="7" step="1" required>
-          <label>Sites qui vous inspirent</label>
-          <textarea name="references"></textarea>
-          <label>Autres commentaires ou demandes</label>
-          <textarea name="commentaires"></textarea>
-        </div>
-
-        <!-- Navigation -->
-        <div class="form-navigation">
-            <button type="button" id="prev-button">Retour</button>
-            <button type="button" id="next-button">Suivant</button>
-            <button type="submit" id="submit-button" style="display:none">Envoyer</button>
-        </div>
-      </form>
-
-      <div class="confirmation-message" id="confirmation-message">
-        <h1>Merci pour votre demande !</h1>
-        <p>
-          J'ai bien reçu votre brief. Je vais l'étudier et vous recontacter rapidement pour discuter de votre projet et vous proposer un devis adapté.
-        </p>
-        <a href="../index.html">Retour à l'accueil</a>
       </div>
     </div>
   </main>
 
-  <script>
-    const sections = document.querySelectorAll('.form-section');
-    const nextBtn = document.getElementById('next-button');
-    const submitBtn = document.getElementById('submit-button');
-    const form = document.getElementById('brief-form');
-    const confirmation = document.getElementById('confirmation-message');
-
-    let currentSection = 0;
-
-    nextBtn.addEventListener('click', () => {
-      const inputs = sections[currentSection].querySelectorAll('input, textarea, select');
-      for (let input of inputs) {
-        if (!input.checkValidity()) {
-          input.reportValidity();
-          return;
-        }
-      }
-      sections[currentSection].classList.remove('active');
-      currentSection++;
-      updatePrevButtonStyle();
-      if (currentSection < sections.length) {
-        sections[currentSection].classList.add('active');
-        if (currentSection === sections.length - 1) {
-          nextBtn.style.display = 'none';
-          submitBtn.style.display = 'inline-block';
-        }
-      }
-    });
-    
-
-    const prevBtn = document.getElementById('prev-button');
-
-    prevBtn.addEventListener('click', () => {
-        if (currentSection > 0) {
-            sections[currentSection].classList.remove('active');
-            currentSection--;
-            sections[currentSection].classList.add('active');
-            submitBtn.style.display = 'none';
-            nextBtn.style.display = 'inline-block';
-            updatePrevButtonStyle();
-        }
-    });
-
-    function updatePrevButtonStyle() {
-        if (currentSection === 0) {
-            prevBtn.classList.remove('active');
-        } else {
-            prevBtn.classList.add('active');
-        }
-    }
-
-
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          form.style.display = 'none';
-          confirmation.style.display = 'block';
-        } else {
-          alert("Une erreur est survenue, veuillez réessayer.");
-        }
-      });
-    });
-  </script>
   <script src="../script.js"></script>
+  <script src="brief.js"></script>
 </body>
 </html>
