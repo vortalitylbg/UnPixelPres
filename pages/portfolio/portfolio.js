@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('modal-title').textContent = projet.titre;
             document.getElementById('modal-image').src = projet.image;
             document.getElementById('modal-description').textContent = projet.description;
-            document.getElementById('modal-link').href = projet.lien;
+            document.getElementById('modal-link').href = 'https://unpixelpres.fr';
             modalOverlay.classList.remove('modal-hidden');
         });
 

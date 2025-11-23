@@ -1,14 +1,4 @@
-// ==================== LOADING SCREEN ====================
-window.addEventListener('load', function() {
-    const loadingScreen = document.querySelector('.loading-screen');
-    setTimeout(() => {
-        loadingScreen.classList.add('hidden');
-        // Initialize animations after loading
-        if (typeof initAnimations === 'function') {
-            initAnimations();
-        }
-    }, 1500);
-});
+// ==================== LOADING SCREEN - REMOVED ====================
 
 // ==================== SMOOTH SCROLL WITH LENIS ====================
 // This will be initialized in lenis.js
@@ -89,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const title = card.querySelector('.project-title')?.textContent || '';
             const description = card.querySelector('.project-description')?.textContent || '';
             const image = card.querySelector('img')?.src || '';
-            const link = card.querySelector('a')?.href || '#';
+            const projectLink = card.querySelector('a')?.href || '#';
 
             const modalTitle = document.getElementById('custom-modal-title');
             const modalDescription = document.getElementById('custom-modal-description');
@@ -99,7 +89,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (modalTitle) modalTitle.textContent = title;
             if (modalDescription) modalDescription.textContent = description;
             if (modalImage) modalImage.src = image;
-            if (modalLink) modalLink.href = link;
+            if (modalLink) {
+                modalLink.href = projectLink;
+                modalLink.onclick = null;
+            }
 
             modalOverlay.classList.remove('modal-hidden');
             modalOverlay.classList.add('show');
@@ -368,42 +361,42 @@ window.addEventListener('scroll', () => {
 
 // ==================== 3D TILT EFFECT ON CARDS ====================
 if (typeof VanillaTilt !== 'undefined') {
-    // Apply tilt to service cards - instant response with no delay
+    // Apply tilt to service cards - reduced effect
     VanillaTilt.init(document.querySelectorAll('.card'), {
-        max: 15,
+        max: 8,
         speed: 2000,
         glare: true,
-        'max-glare': 0.3,
-        scale: 1.05,
+        'max-glare': 0.15,
+        scale: 1.02,
         transition: false
     });
     
-    // Apply tilt to stat items - instant response
+    // Apply tilt to stat items - reduced effect
     VanillaTilt.init(document.querySelectorAll('.stat-item'), {
-        max: 10,
-        speed: 2000,
-        glare: true,
-        'max-glare': 0.2,
-        transition: false
-    });
-    
-    // Apply tilt to portfolio cards - instant response
-    VanillaTilt.init(document.querySelectorAll('.project-card'), {
-        max: 12,
-        speed: 2000,
-        glare: true,
-        'max-glare': 0.25,
-        scale: 1.03,
-        transition: false
-    });
-    
-    // Apply tilt to pricing cards - subtle effect for professional look
-    VanillaTilt.init(document.querySelectorAll('.card-tarif'), {
-        max: 4,
+        max: 5,
         speed: 2000,
         glare: true,
         'max-glare': 0.1,
+        transition: false
+    });
+    
+    // Apply tilt to portfolio cards - reduced effect
+    VanillaTilt.init(document.querySelectorAll('.project-card'), {
+        max: 6,
+        speed: 2000,
+        glare: true,
+        'max-glare': 0.12,
         scale: 1.01,
+        transition: false
+    });
+    
+    // Apply tilt to pricing cards - very subtle effect for professional look
+    VanillaTilt.init(document.querySelectorAll('.card-tarif'), {
+        max: 3,
+        speed: 2000,
+        glare: true,
+        'max-glare': 0.08,
+        scale: 1.005,
         transition: false
     });
 }
