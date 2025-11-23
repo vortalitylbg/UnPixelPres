@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     seeMoreButtons.forEach((btn) => {
         btn.addEventListener('click', function (e) {
             e.preventDefault();
+            e.stopPropagation();
 
             const card = btn.closest('.project-card');
             if (!card) return;
@@ -91,7 +92,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (modalImage) modalImage.src = image;
             if (modalLink) {
                 modalLink.href = projectLink;
-                modalLink.onclick = null;
+                modalLink.onclick = function(e) {
+                    window.open(projectLink, '_blank');
+                    return false;
+                };
             }
 
             modalOverlay.classList.remove('modal-hidden');
