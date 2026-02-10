@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interactive</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <div class="mesh-bg"></div>
+    
+    <div class="container" id="main-container">
+        <!-- Login Section -->
+        <div id="login-section" class="glass card">
+            <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Bienvenue</h1>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Entrez votre prénom pour rejoindre la partie</p>
+            <input type="text" id="username" placeholder="Votre prénom" autocomplete="off">
+            <button id="join-btn" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; font-size: 1.1rem; padding: 1.2rem; box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);">Rejoindre le Lobby</button>
+        </div>
+
+        <!-- Waiting Room Section -->
+        <div id="waiting-section" class="hidden glass card">
+            <h1 style="font-size: 2rem;">Lobby</h1>
+            <p style="margin-bottom: 1.5rem;">Prêt, <span id="display-name" style="color: var(--primary); font-weight: 700;"></span> ?</p>
+            <div id="score-display" style="font-size: 1.1rem; font-weight: 600; opacity: 0.8;">Score actuel : 0 pts</div>
+            
+            <div style="margin: 2rem 0;">
+                <p style="text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1.5rem;">Joueurs connectés</p>
+                <div id="player-list" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; min-height: 100px;"></div>
+            </div>
+            
+            <p style="font-size: 0.9rem; color: var(--text-muted); font-style: italic;">En attente de l'administrateur...</p>
+        </div>
+
+        <!-- Game Section -->
+        <div id="game-section" class="hidden">
+            <div class="glass" style="padding: 1.5rem; border-radius: 20px; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                <span id="question-title-player" style="font-weight: 600;">Question en cours</span>
+                <span id="timer-text" style="font-weight: 800; color: var(--primary);">10s</span>
+            </div>
+            
+            <div class="timer-container" style="margin-bottom: 2rem;">
+                <div id="timer-bar"></div>
+            </div>
+
+            <div id="player-answers" class="answers-grid">
+                <button class="ans-btn btn-0" onclick="sendAnswer(0)"></button>
+                <button class="ans-btn btn-1" onclick="sendAnswer(1)"></button>
+                <button class="ans-btn btn-2" onclick="sendAnswer(2)"></button>
+                <button class="ans-btn btn-3" onclick="sendAnswer(3)"></button>
+            </div>
+            
+            <div id="feedback" style="margin-top: 2rem; text-align: center;"></div>
+        </div>
+
+        <!-- Finish Section -->
+        <div id="finish-section" class="hidden glass card" style="max-width: 600px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Félicitations !</h1>
+            <p style="margin-bottom: 1rem;">Votre score final</p>
+            <div id="final-score" style="font-size: 4rem; font-weight: 800; color: var(--primary); margin: 0.5rem 0;">0</div>
+            
+            <div style="margin: 2rem 0;">
+                <h3 style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1.5rem;">Classement Final</h3>
+                <div id="final-leaderboard-list" style="text-align: left;">
+                    <!-- Ranking items will be here -->
+                </div>
+            </div>
+
+            <button onclick="localStorage.clear(); location.reload();" style="background: rgba(255,255,255,0.05); color: var(--text-muted); font-size: 0.8rem; border: 1px solid var(--glass-border);">Se déconnecter</button>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

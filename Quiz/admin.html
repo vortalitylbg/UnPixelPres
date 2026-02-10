@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <div class="mesh-bg"></div>
+
+    <div id="admin-auth" class="container glass" style="max-width: 400px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
+        <h2>Accès Admin</h2>
+        <input type="password" id="admin-password" placeholder="Mot de passe">
+        <button id="auth-btn">Se connecter</button>
+        <p id="auth-error" style="color: var(--accent); font-size: 0.8rem; margin-top: 1rem;" class="hidden">Mot de passe incorrect</p>
+    </div>
+
+    <div class="container hidden" id="admin-container">
+        <!-- Dashboard Section -->
+        <div id="admin-dashboard" class="glass card">
+            <h1 style="font-size: 2.5rem; margin-bottom: 2rem;">Contrôle du Quiz</h1>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="glass" style="padding: 2rem; border-radius: 20px; text-align: center;">
+                    <p style="text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.5rem;">Joueurs Connectés</p>
+                    <div id="player-count" style="font-size: 4rem; font-weight: 800; color: var(--primary);">0</div>
+                </div>
+                <div class="glass" style="padding: 2rem; border-radius: 20px; display: flex; flex-direction: column; justify-content: center; gap: 1rem;">
+                    <button id="start-game-btn" style="width: 100%; margin: 0; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; font-size: 1.1rem; padding: 1.2rem;">Lancer la Partie</button>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                        <button id="kick-all-btn" style="background: rgba(239, 68, 68, 0.1); color: #f87171; font-size: 0.7rem; padding: 0.6rem; margin: 0; border: 1px solid rgba(239, 68, 68, 0.2);">Virer tout le monde</button>
+                        <button id="reset-game-btn" style="background: rgba(255, 255, 255, 0.05); color: var(--text-muted); font-size: 0.7rem; padding: 0.6rem; margin: 0; border: 1px solid var(--glass-border);">Réinitialiser l'état</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Player Management -->
+            <div class="glass" style="padding: 1.5rem; border-radius: 20px;">
+                <h3 style="margin-bottom: 1rem; font-size: 1rem; color: var(--text-muted);">Gestion des Joueurs</h3>
+                <div id="admin-player-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+                    <!-- Players will be listed here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Question Display Section -->
+        <div id="admin-game-section" class="hidden">
+            <div class="glass card" style="margin-bottom: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <span id="question-title" style="font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.1em;">Question 1</span>
+                    <span id="timer-text" style="font-size: 1.5rem; font-weight: 800;">10s</span>
+                </div>
+                
+                <h2 id="question-text" style="font-size: 2.5rem; font-weight: 600; line-height: 1.3; margin-bottom: 2rem;"></h2>
+                
+                <div class="timer-container" style="margin-bottom: 1rem;">
+                    <div id="timer-bar"></div>
+                </div>
+            </div>
+
+            <div id="admin-answers" class="answers-grid">
+                <!-- Answers will be injected here -->
+            </div>
+
+            <div id="intermediate-leaderboard" class="hidden glass" style="margin-top: 2rem; padding: 2rem; border-radius: 20px;">
+                <h3 style="margin-bottom: 1.5rem; text-align: center; color: var(--text-muted); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em;">Classement Provisoire</h3>
+                <div id="leaderboard-list"></div>
+            </div>
+            
+            <div style="margin-top: 3rem; text-align: center;">
+                <button id="reveal-btn" class="hidden">Révéler la Réponse</button>
+                <button id="next-question-btn" class="hidden" style="min-width: 250px;">Question Suivante</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
