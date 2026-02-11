@@ -11,17 +11,62 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const questions = [
-    { text: "What is Artificial Intelligence?", answers: ["A type of robot only", "A system that can learn and make decisions", "A video game engine", "A computer screen"], correct: 1 },
-    { text: "Which sector is presented in this talk?", answers: ["Medicine", "Agriculture", "Software development", "Transport"], correct: 2 },
-    { text: "What is one main job of a developer?", answers: ["Repair hardware", "Write code", "Sell computers", "Design networks"], correct: 1 },
-    { text: "How can AI help developers?", answers: ["By cooking faster", "By generating code", "By replacing electricity", "By deleting data"], correct: 1 },
-    { text: "Which is an AI coding tool?", answers: ["Photoshop", "GitHub Copilot", "Excel only", "Chrome browser"], correct: 1 },
-    { text: "In the example project, how much of the website was AI‑assisted?", answers: ["10%", "30%", "About 80%", "100%"], correct: 2 },
-    { text: "One risk of AI‑generated code is:", answers: ["It is always perfect", "It can contain errors or security problems", "It is too colorful", "It uses no memory"], correct: 1 },
-    { text: "Why is human review important?", answers: ["To slow things down", "To check correctness and safety", "To remove all AI", "To change the language"], correct: 1 },
-    { text: "Are there AI regulations today?", answers: ["No rules exist", "Only in video games", "Yes, especially in Europe", "Only for students"], correct: 2 },
-    { text: "The future of development is:", answers: ["AI alone", "No more developers", "Humans and AI working together", "Only robots"], correct: 2 }
+    { 
+        text: "What does Artificial Intelligence simulate?", 
+        answers: [
+            "Human intelligence", 
+            "Internet speed", 
+            "Computer hardware", 
+            "Electricity systems"
+        ], 
+        correct: 0 
+    },
+
+    { 
+        text: "What is one main task of IT developers?", 
+        answers: [
+            "Repair printers", 
+            "Write code", 
+            "Sell software licenses", 
+            "Install Wi-Fi only"
+        ], 
+        correct: 1 
+    },
+
+    { 
+        text: "Which is one way AI helps developers?", 
+        answers: [
+            "Cooking faster", 
+            "Code generation", 
+            "Drawing logos only", 
+            "Buying computers"
+        ], 
+        correct: 1 
+    },
+
+    { 
+        text: "One risk of AI in computer development is:", 
+        answers: [
+            "Too many keyboards", 
+            "Bigger screens", 
+            "Wrong code", 
+            "Faster internet"
+        ], 
+        correct: 2 
+    },
+
+    { 
+        text: "According to the presentation, the future is:", 
+        answers: [
+            "AI replaces all developers", 
+            "No more programming", 
+            "Human + AI collaboration", 
+            "Only robots build systems"
+        ], 
+        correct: 2 
+    }
 ];
+
 
 let currentQuestionIndex = 0;
 let timerInterval;
